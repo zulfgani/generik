@@ -540,11 +540,11 @@ em {
         align-items: center;
     }
 	.desktop-nav.left ul {
-		justify-content: left;
+		justify-content: flex-start;
 	}
 	.desktop-nav.inline ul,
 	.desktop-nav.right ul {
-		justify-content: right;
+		justify-content: flex-end;
 	}
     .desktop-nav ul > li {
         list-style: none;
