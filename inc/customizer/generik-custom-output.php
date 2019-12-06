@@ -39,10 +39,6 @@ function generik_css() {
 	$header_inline		= get_theme_mod( 'header-design-toggle', 'center' );
 	
 	$content_width 		= get_theme_mod( 'no-sidebar-content-width', 1140 );
-	//$color_accent_pri 		= get_theme_mod( 'generik_accent_primary', generik_customizer_get_default_accent_primary() );
-	//$color_accent_sec 		= get_theme_mod( 'generik_accent_secondary', generik_customizer_get_default_accent_secondary() );
-	//$color_button_pri 		= get_theme_mod( 'generik_button_primary', generik_customizer_get_default_button_primary() );
-	//$color_button_sec 		= get_theme_mod( 'generik_button_secondary', generik_customizer_get_default_button_secondary() );
 
 	$css = '';
 	//* Calculate Color Contrast
@@ -94,9 +90,7 @@ function generik_css() {
 		$css .= sprintf( '@media screen and (min-width: 48em) {.desktop-nav-wrapper {display: flex;}}' );
 	}
 	$css .= sprintf( '.no-sidebar .site .content-area, .page-template-default .content-area {max-width: %spx;}', $content_width );
-	//$css .= ( generik_customizer_get_default_button_primary() !== $color_button_pri ) ? sprintf( 'input[type="submit"],input[type="button"],.header-elements .widget-area .button,.header-elements .widget-area a.button.small, .header-elements .widget-area button.small,.enews-widget input[type="submit"],.comments-area .form-submit .submit{background-color: %s; color: %s;}', $color_button_pri, actions_color_contrast( $color_button_pri ) ) : '';
-	//$css .= ( generik_customizer_get_default_button_secondary() !== $color_button_sec ) ? sprintf( 'input[type="submit"]:hover,input[type="submit"]:focus,input[type="button"]:hover,input[type="button"]:focus,.header-elements .widget-area .button:hover,.header-elements .widget-area a.button.small:hover,.header-elements .widget-area button.small:hover,.header-elements .widget-area .button:focus,.header-elements .widget-area a.button.small:focus,.header-elements .widget-area button.small:focus,#secondary.enews-widget input:hover[type="submit"],.enews-widget input:focus[type="submit"],.comments-area .form-submit .submit:hover{background-color: %s; color: %s;}', $color_button_sec, actions_color_contrast( $color_button_sec ) ) : '';
-
+	
 	wp_add_inline_style( $handle, $css );
 
 }

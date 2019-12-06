@@ -28,7 +28,7 @@ function generik_body_classes( $classes ) {
 		$classes[] = 'generik-customizer';
 	}
 	
-	if ( get_theme_mod( 'site-footer-fixed', true ) ) {
+	if ( get_theme_mod( 'site-footer-fixed', false ) ) {
 		$classes[] = 'footer-bottom-fixed';
 	}
 

@@ -69,13 +69,13 @@ function generik_featured_image() {
 	if ( '' !== get_the_post_thumbnail() && ! is_single() ) : ?>
 		<div class="post-thumbnail">
 			<a href="<?php the_permalink(); ?>">
-				<?php the_post_thumbnail( 'nore-featured-image' ); ?>
+				<?php the_post_thumbnail( 'generik-featured-image' ); ?>
 			</a>
 		</div><!-- .post-thumbnail -->
 	<?php 
 	elseif ( '' !== get_the_post_thumbnail() && is_single() ) : ?>
 		<div class="post-thumbnail">
-			<?php the_post_thumbnail( 'nore-large-image' ); ?>
+			<?php the_post_thumbnail( 'generik-large-image' ); ?>
 		</div>
 	<?php endif;
 }

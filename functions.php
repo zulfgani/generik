@@ -49,9 +49,9 @@ function generik_setup() {
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
-	add_image_size( 'nore-featured-image', 1140, 450, true );
-	add_image_size( 'nore-single-image', 780, 400, true );
-	add_image_size( 'nore-large-image', 1600, 700, true );
+	add_image_size( 'generik-featured-image', 1140, 450, true );
+	add_image_size( 'generik-single-image', 780, 400, true );
+	add_image_size( 'generik-large-image', 1600, 700, true );
 
 	// Set the default content width.
 	$GLOBALS['content_width'] = 1600;

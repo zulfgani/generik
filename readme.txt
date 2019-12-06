@@ -21,4 +21,23 @@ Footer.
 The footer can be set to float (default) or fixed to the bottom via the Customizer > Controls > Footer options.
 
 NOTES:
-Themename utilises the Kirki framework for its Customizer options. Please make sure you have the plugin installed and activated in order to gain access to all of the mentioned options/controls above.
+GeneriK utilises the Acid Customizer framework
+
+# Changelog
+
+Mar. 24, 2019, dev time < 30mins
+
+= 1.0.1 =
+This update represents minor non breaking tweaks for aesthetic purposes.
+
+* Minor CSS tweaks - style.css @lines 481-487 - New rules added.
+* Adjusted rule for fixed footer - template-functions.php @line 31 to false as the initial state.
+* Removed unsued & commented out code in generik-custom-output.php
+* Fixed: Incorrect thumbnail handle - functions.php @lines 52-54 and comon-functions.php @lines 72 & 78
+* Ammended incorrect License tag in style.css header
+
+Mar. 23, 2019, dev time > 100hrs
+
+= 1.0.0 =
+
+* Initial release
