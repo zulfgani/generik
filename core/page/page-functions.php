@@ -12,7 +12,6 @@ function generik_page_render() {
 		do_action( 'generik_page_comments_start' );
 			do_action( 'generik_comments' );
 		do_action( 'generik_page_comments_end' );
-
 	endwhile;
 	do_action( 'generik_page_end' );
 }

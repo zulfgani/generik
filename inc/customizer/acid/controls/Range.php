@@ -21,10 +21,10 @@ add_action( 'customize_register', function() {
                 <div class="range-slider"  style="width:100%; display:flex;flex-direction: row;justify-content: flex-start;">
                     <span  style="width:100%; flex: 1 0 0; vertical-align: middle;">
                         <input class="range-slider__range" type="range" value="<?php echo esc_attr( $this->value() ); ?>" <?php $this->input_attrs(); $this->link(); ?>>
-                        <span class="range-slider__value">0</span></span>
+                        <span class="range-slider__value"><?php echo esc_attr( $this->value() ); ?></span></span>
                 </div>
                 <?php if ( !empty( $this->description ) ) : ?>
-                    <span class="description customize-control-description"><?php echo $this->description; ?></span>
+                    <span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
                 <?php endif; ?>
             </label>
             <?php

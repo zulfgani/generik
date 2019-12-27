@@ -29,25 +29,20 @@ if ( ! class_exists( 'AcidSection' ) ) {
             $wp_customize->add_section( $this->id, array(
                 'title'                 => $this->title,
                 'description'           => $this->description,
-                'panel'                 => $this->panel
+                'panel'                 => $this->panel,
+				'sanitize_callback' 	=> $this->sanitize_callback
             ) );
             
-            foreach( $this->options as $option_id => $option ) {
-                
-                $this->create_option( $option_id, $option );
-               
+            foreach( $this->options as $option_id => $option ) {                
+                $this->create_option( $option_id, $option );               
             }
             
         }
         
-        private function create_option( $option_id, $option ) {
-            
-            $option = new AcidOption( $this->id, $option_id, $option );
-            
-        }
-        
+        private function create_option( $option_id, $option ) {            
+            $option = new AcidOption( $this->id, $option_id, $option );            
+        }        
         
     }
-
 
 }

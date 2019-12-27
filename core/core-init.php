@@ -9,9 +9,11 @@ require get_parent_theme_file_path( '/core/single/single-functions.php' );
 require get_parent_theme_file_path( '/core/page/page-functions.php' );
 require get_parent_theme_file_path( '/core/archive/archive-functions.php' );
 require get_parent_theme_file_path( '/core/templates/canvas-functions.php' );
+require get_parent_theme_file_path( '/core/templates/fullscreen-functions.php' );
 require get_parent_theme_file_path( '/core/footer/footer-functions.php' );
 require get_parent_theme_file_path( '/core/sidebar/sidebar-functions.php' );
 require get_parent_theme_file_path( '/core/search/search-functions.php' );
+require get_parent_theme_file_path( '/core/attachment/attachment-functions.php' );
 
 require get_parent_theme_file_path( '/core/common-functions.php' );
 
@@ -39,7 +41,6 @@ require get_parent_theme_file_path( '/inc/customizer/generik-custom-output.php' 
  * SVG icons functions and filters.
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
-
 
 /**
  * Let's fire the GeneriK engine up!
@@ -101,7 +102,7 @@ function generik() {
 			 */
 			do_action( 'generik_archive' );
 			
-		} elseif ( is_page() || is_page_template( 'page-templates/fullscreen.php' ) ) {
+		} elseif ( is_page() ) {
 			/**
 			 * generik_page hook.
 			 *
@@ -109,7 +110,17 @@ function generik() {
 			 */
 			do_action( 'generik_page' );
 			
-		} elseif ( is_search() ) {
+		}
+		elseif ( is_page_template( 'page-templates/fullscreen.php' ) ) {
+			/**
+			 * generik_fullscreen hook.
+			 *
+			 * @hooked generik_fullscreen_render - 50
+			 */
+			do_action( 'generik_fullscreen' );
+			
+		}
+		elseif ( is_search() ) {
 			/**
 			 * generik_search hook.
 			 *
@@ -117,7 +128,7 @@ function generik() {
 			 */
 			do_action( 'generik_search' );
 			
-		} 
+		}
 		
 		/**
 		 * generik_footer hook.

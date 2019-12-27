@@ -14,44 +14,58 @@ function generik_canvas_header_render() {
 }
 add_action( 'generik_canvas_header', 'generik_canvas_header_render', 50 );
 
- 
-function generik_main_menu_render() { 
-	$header_text_alignment = get_theme_mod( 'header-design-toggle', 'center' );	
-?> 
-	<div id="masthead" class="site-header" role="banner">
-	<header class="desktop-nav-wrapper">
-	<?php 
-		
-		do_action( 'desktop_nav_before' ); 
-		$generik_brand = get_theme_mod( 'site-brand-on', true );
-		$generik_desc = get_theme_mod( 'site-desc-on', true );
-		$description = get_bloginfo( 'description');
-		if ( true == $generik_brand ) {
-	?>
-		<div class="site-logo <?php echo $header_text_alignment; ?>" itemscope="itemscope" itemtype="http://schema.org/Organization">
-			<?php generik_branding(); 
-			if ( true == $generik_desc ) { ?>
-				<p class="site-description <?php echo $header_text_alignment; ?> "> <?php echo esc_attr( $description ); /* WPCS: xss ok. */?></p>
-			<?php }
-			?>
+function generik_masthead_start() {
+	echo '<div id="masthead" class="site-header" role="banner">';
+	echo '<header class="desktop-nav-wrapper">';		
+}
+add_action( 'generik_header_before', 'generik_masthead_start', 10 );
+
+function generik_masthead_end() {
+	echo '</header>';
+	echo '</div>';	
+}
+add_action( 'generik_header_after', 'generik_masthead_end', 10 );
+
+function generik_brand_output() {
+	$header_text_alignment = get_theme_mod( 'header-design-toggle', 'center' );
+	$generik_brand = get_theme_mod( 'site-brand-on', true );
+	if ( true == $generik_brand ) { ?>
+		<div class="site-logo <?php echo esc_attr( $header_text_alignment ); ?>" itemscope="itemscope" itemtype="http://schema.org/Organization">
+			<?php generik_branding(); ?>
 		</div>
-		<?php } ?>
-		<div class="wrapper">
-			<?php do_action( 'desktop_nav_menu_before' ); ?>
-			<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" class="desktop-nav <?php echo $header_text_alignment; ?>">						
-				<?php wp_nav_menu( array( 'theme_location'=> 'primary', 'container'=> 'navigation' ) );?>			
-			</nav>
-			<?php do_action( 'desktop_nav_menu_after' ); ?>
-		</div>
-	<?php 
-		do_action( 'desktop_nav_after' ); 
-		
-	?>
-	</header>
+	<?php }
+}
+add_action( 'generik_header', 'generik_brand_output', 10 );
+
+function generik_description_output() {
+	$header_text_alignment = get_theme_mod( 'header-design-toggle', 'center' );
+	$generik_desc = get_theme_mod( 'site-desc-on', true );
+	$description = get_bloginfo( 'description');
+	if ( true == $generik_desc ) { ?>
+		<p class="site-description <?php echo esc_attr( $header_text_alignment ); ?> "> <?php echo esc_attr( $description ); /* WPCS: xss ok. */?></p>
+	<?php }
+}
+add_action( 'generik_header', 'generik_description_output', 20 );
+
+function generik_navigation_output() { 
+	$header_text_alignment = get_theme_mod( 'header-design-toggle', 'center' );
+	do_action( 'generik_desktop_nav_before' );
+?>
+	<div class="wrapper">
+		<?php do_action( 'generik_desktop_nav_menu_before' ); ?>
+		<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" class="desktop-nav <?php echo esc_attr( $header_text_alignment ); ?>">						
+			<?php wp_nav_menu( array( 'theme_location'=> 'primary', 'container'=> 'navigation' ) );?>			
+		</nav>
+		<?php do_action( 'generik_desktop_nav_menu_after' ); ?>
 	</div>
-	
+<?php 
+	do_action( 'generik_desktop_nav_after' );
+}
+add_action( 'generik_header', 'generik_navigation_output', 30 );
+
+function generik_handheld_nav_output() { ?>
 	<header class="mobile-nav-wrapper">
-		<?php do_action( 'mobile_nav_before' ); ?>
+		<?php do_action( 'generik_mobile_nav_before' ); ?>
 		<div class="site-logo" itemscope="itemscope" itemtype="http://schema.org/Organization">
 			<?php generik_branding(); ?>
 		</div>
@@ -60,17 +74,16 @@ function generik_main_menu_render() {
 		</div>
 		<nav itemtype="http://schema.org/SiteNavigationElement" itemscope="itemscope" class="mobile-nav">
 			<?php 
-				do_action( 'mobile_nav_menu_before' );
+				do_action( 'generik_mobile_nav_menu_before' );
 					wp_nav_menu( array( 'theme_location'=> 'devices', 'container'=> 'navigation' ) );
-				do_action( 'mobile_nav_menu_after' ); 
+				do_action( 'generik_mobile_nav_menu_after' ); 
 			?>
 		</nav>
-		<?php do_action( 'mobile_nav_after' ); ?>
+		<?php do_action( 'generik_mobile_nav_after' ); ?>
 	</header>
 <?php
-	
 }
-add_action( 'generik_header', 'generik_main_menu_render', 10 );
+add_action( 'generik_header_after', 'generik_handheld_nav_output', 20 );
 
 function generik_branding() {
 	if( has_custom_logo() ) {

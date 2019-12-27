@@ -36,19 +36,19 @@ if( ! class_exists( 'AcidOption' ) ) {
         public static function get_types() {
             
             return array(
-                'text'              => 'Text',
-                'checkbox'          => 'Checkbox',
-                'radio'             => 'Radio',
-                'select'            => 'Select',
-                'textarea'          => 'Text area',
-                'dropdown-pages'    => 'Dropdown Pages',
-                'email'             => 'Email',    
-                'url'               => 'URL',
-                'number'            => 'Number',
-                'decimal'           => 'Decimal',
-                'hidden'            => 'Hidden',
-                'date'              => 'Date',
-                'image'             => 'Image',
+                'text'              => __( 'Text', 'generik' ),
+                'checkbox'          => __( 'Checkbox', 'generik' ),
+                'radio'             => __( 'Radio', 'generik' ),
+                'select'            => __( 'Select', 'generik' ),
+                'textarea'          => __( 'Text area', 'generik' ),
+                'dropdown-pages'    => __( 'Dropdown Pages', 'generik' ),
+                'email'             => __( 'Email', 'generik' ),    
+                'url'               => __( 'URL', 'generik' ),
+                'number'            => __( 'Number', 'generik' ),
+                'decimal'           => __( 'Decimal', 'generik' ),
+                'hidden'            => __( 'Hidden', 'generik' ),
+                'date'              => __( 'Date', 'generik' ),
+                'image'             => __( 'Image', 'generik' ),
             );
             
         }
@@ -63,7 +63,7 @@ if( ! class_exists( 'AcidOption' ) ) {
         private function set_type() {
             
             if( ! in_array( $this->type, self::get_types() ) ) {
-                _doing_it_wrong( 'AcidOption->set_type', __( 'You used a non valid option type', 'acid' ), '0.0.1' );
+                _doing_it_wrong( 'AcidOption->set_type', __( 'You used a non valid option type', 'generik' ), '0.0.1' );
                 
             }
             
@@ -163,7 +163,7 @@ if( ! class_exists( 'AcidOption' ) ) {
             
             if( $this->has_sanitize_callback() ) {
                 $this->setting_args[ 'sanitize_callback' ] = $this->sanitize_callback;
-            }else {
+            } else {
                 $this->set_sanitization();
             }
             
@@ -173,7 +173,7 @@ if( ! class_exists( 'AcidOption' ) ) {
             
             if( $this->has_transport() ) {
                 $this->setting_args[ 'transport' ] = $this->default;
-            }else {
+            } else {
                 $this->setting_args[ 'transport' ] = self::TRANSPORT;
             }
             

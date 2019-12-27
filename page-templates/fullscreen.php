@@ -3,7 +3,7 @@
  * Template Name: GeneriK Fullscreen
  * Template Post Type: post, page
  *
- * A blank page template where you have the full width of the page. There is still a header at top, unless you choose the custom field to replace it.
+ * A fullscreen page template where you have the full width of the page.
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
  * @package GeneriK

@@ -31,11 +31,11 @@ function generik_single_article_render() { ?>
 		<header class="entry-header">
 			<?php 
 				do_action( 'generik_single_title_before' );
-					the_title( '<h1 class="entry-title">', '</h1>' );
+				the_title( '<h1 class="entry-title">', '</h1>' );
 				do_action( 'generik_single_title_after' );
-					echo '<div class="entry-meta">';
-						generik_posted_on();
-					echo '</div><!-- .entry-meta -->';
+				echo '<div class="entry-meta">';
+					generik_posted_on();
+				echo '</div><!-- .entry-meta -->';
 				do_action( 'generik_single_posted_after' );
 			?>
 		</header><!-- .entry-header -->

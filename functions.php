@@ -11,10 +11,11 @@
 
 
 /**
- * Assign the Actions version to a var
+ * Assign the GeneriK version to a var
  */
-$theme 			  = wp_get_theme( 'generik' );
-$generik_version  = $theme['Version'];
+$theme 			  	= wp_get_theme( 'generik' );
+$theme_name			= $theme['Name'];
+$generik_version  	= $theme['Version'];
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -24,9 +25,10 @@ $generik_version  = $theme['Version'];
  * as indicating support for post thumbnails.
  */
 function generik_setup() {
+	global $theme_name;
 	/*
 	 * Make theme available for translation.
-	 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/nore
+	 * Translations can be filed at WordPress.org. See: https://translate.classicpress.net/projects/wp-themes/generik
 	 * If you're building a theme based on GeneriK, use a find and replace
 	 * to change 'generik' to the name of your theme in all the template files.
 	 */
@@ -73,6 +75,24 @@ function generik_setup() {
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 	
+	if ( class_exists( 'totclcInit' ) ) {
+		add_theme_support( 
+			'components-page-builder', [
+				'components' => [
+					'classic-content-block',
+					'classic-content-block-two',
+					'classic-hero-block',
+					'classic-recent-posts',
+					'classic-cta-banner',
+					'classic-commerce-products',
+					//'classic-contact-form-7',
+					'gallery',
+				],
+				'control_title' => __( $theme_name .' Page Components', 'totc-layout-control' ),
+			] 
+		);
+	}
+	
 }
 add_action( 'after_setup_theme', 'generik_setup' );
 
@@ -114,6 +134,9 @@ function generik_scripts() {
 		wp_enqueue_style( $parent_style, get_stylesheet_uri(), array(), $generik_version );
 	}
 	
+	if ( class_exists( 'totclcInit' ) ) {
+		wp_enqueue_style( 'generik-components-page-builder', get_template_directory_uri() .'/core/assets/css/components-page-builder.css', array(), $generik_version );
+	}
 	wp_enqueue_script( 'generik-skip-link-focus-fix', get_theme_file_uri( '/core/assets/js/skip-link-focus-fix.js' ), array(), $generik_version, true );
 	wp_enqueue_script( 'generik-navigation', get_theme_file_uri( '/core/assets/js/navigation.js' ), array( 'jquery' ), $generik_version, true );
 		

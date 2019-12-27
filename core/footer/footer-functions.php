@@ -57,7 +57,7 @@ add_action( 'generik_footer_render', 'generik_footer_widgets_render', 20 );
 function generik_site_info() { 
 $footer_text_alignment = get_theme_mod( 'footer-text-aligment' );
 ?>
-	<div class="site-info <?php echo $footer_text_alignment; ?>">
+	<div class="site-info <?php echo esc_attr( $footer_text_alignment ); ?>">
 		<span class="copyright">
 			<?php do_action( 'generik_copyright' ); ?>
 		</span>		
@@ -86,7 +86,7 @@ if ( ! function_exists( 'generik_footer_credits' ) ) {
 		$credits = get_theme_mod( 'generik_footer_credits', true );
 		
 		if ( true == $credits ) {
-		    printf( __( ' Theme: %1$s, designed by %2$s.', 'generik' ), esc_attr( $name ), '<a href="' . esc_url( $url ) . '" alt="' . esc_attr( $name ) . '" title="' . esc_attr( $name ) . '" rel="designer nofollow">' . esc_attr( $author ) . '</a>' );
+		    printf( __( ' Theme: %1$s, designed by %2$s.', 'generik' ), esc_attr( $name ), '<a href="' . esc_url( $url ) . '" alt="' . esc_attr( $name ) . '" title="' . esc_attr( $name ) . '" rel="designer nofollow noopener">' . esc_attr( $author ) . '</a>' );
 		}        
 	}
 	add_action( 'generik_credits', 'generik_footer_credits' );

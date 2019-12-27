@@ -16,7 +16,7 @@ add_action( 'customize_register', function() {
             <div class="switch-field">
 
                 <?php if ( !empty( $this->description ) ) : ?>
-                    <div class="switch-title description customize-control-description"><?php echo $this->description; ?></div>
+                    <div class="switch-title description customize-control-description"><?php echo esc_html( $this->description ); ?></div>
                 <?php endif; ?>
                     
                 <?php

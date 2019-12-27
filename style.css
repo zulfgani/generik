@@ -1,17 +1,27 @@
 /*
 Theme Name: GeneriK
-Theme URI: https://classicdesigner.co.uk
+Theme URI: https://github.com/zulfgani/generik
 Author: ClassicDesigner UK
 Author URI: https://classicdesigner.co.uk
 Description: A robust, modern, lightweight and very extensible ClassicPress theme by ClassicDesigner – Taking simplicity, adding some sophistication and unleashing your creativity all in one small-big package. I am, GeneriK!
-Version: 1.0.1
-License: GNU General Public License v3 or later
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Version: 1.0.2
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: generik
-Tags: one-column, two-columns, right-sidebar, custom-menu, custom-logo, featured-images, theme-options, threaded-comments, translation-ready
+Tags: blog, one-column, two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready
 
-This theme, like ClassicPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
+GeneriK ClassicPress Theme, Copyright 2019 ClassicDesigner & classicdesigner.co.uk
+GeneriK is Distributed under the terms of the GNU GPL
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
 */
 
 html[lang] {
@@ -39,6 +49,11 @@ body.page-template-canvas.admin-bar {
 1.0 Normalize
 Styles based on Normalize v5.0.0 @link https://github.com/necolas/normalize.css
 --------------------------------------------------------------*/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 html {
     font-family: sans-serif;
@@ -319,55 +334,55 @@ template {
 4.0 Clearings
 --------------------------------------------------------------*/
 
-.clear:before,
-.clear:after,
-.entry-content:before,
-.entry-content:after,
-.entry-summary:before,
-.entry-summary:after,
-.entry-header:before,
-.entry-header:after,
-.entry-footer:before,
-.entry-footer:after,
-.comment-content:before,
-.comment-content:after,
-.site-header:before,
-.site-header:after,
-.site-content:before,
-.site-content:after,
-.site-footer:before,
-.site-footer:after,
-.nav-links:before,
-.nav-links:after,
-.pagination:before,
-.pagination:after,
-.comment-author:before,
-.comment-author:after,
-.widget-area:before,
-.widget-area:after,
-.widget:before,
-.widget:after,
-.comment-meta:before,
-.comment-meta:after {
+.clear::before,
+.clear::after,
+.entry-content::before,
+.entry-content::after,
+.entry-summary::before,
+.entry-summary::after,
+.entry-header::before,
+.entry-header::after,
+.entry-footer::before,
+.entry-footer::after,
+.comment-content::before,
+.comment-content::after,
+.site-header::before,
+.site-header::after,
+.site-content::before,
+.site-content::after,
+.site-footer::before,
+.site-footer::after,
+.nav-links::before,
+.nav-links::after,
+.pagination::before,
+.pagination::after,
+.comment-author::before,
+.comment-author::after,
+.widget-area::before,
+.widget-area::after,
+.widget::before,
+.widget::after,
+.comment-meta::before,
+.comment-meta::after {
     content: "";
     display: table;
     table-layout: fixed;
 }
-.clear:after,
-.entry-content:after,
-.entry-summary:after,
-.entry-header:after,
-.entry-footer:after,
-.comment-content:after,
-.site-header:after,
-.site-content:after,
-.site-footer:after,
-.nav-links:after,
-.pagination:after,
-.comment-author:after,
-.widget-area:after,
-.widget:after,
-.comment-meta:after {
+.clear::after,
+.entry-content::after,
+.entry-summary::after,
+.entry-header::after,
+.entry-footer::after,
+.comment-content::after,
+.site-header::after,
+.site-content::after,
+.site-footer::after,
+.nav-links::after,
+.pagination::after,
+.comment-author::after,
+.widget-area::after,
+.widget::after,
+.comment-meta::after {
     clear: both;
 }
 /*--------------------------------------------------------------
@@ -412,7 +427,7 @@ em {
     max-width: 1140px;
     width: 100%;
 }
-.wrapper:after {
+.wrapper::after {
     clear: both;
     content: "";
     display: block;
@@ -475,8 +490,20 @@ em {
 .site-logo .site-title a:hover {
 	color: #fe595e;
 }
+.site-logo.inline {
+	width: 35%;
+}
 .site-description {
 	
+}
+.site-logo.inline .site-description {
+    padding: 0 20px;
+}
+.site-logo.left .site-description {
+    padding-left: 20px;
+}
+.site-logo.left .site-description {
+    padding-right: 20px;
 }
 .desktop-nav ul li.item-button a {
 	background-color: #000000;
@@ -490,6 +517,9 @@ em {
     .desktop-nav-wrapper {
         display: block;
     }
+	.mobile-nav-wrapper {
+        display: none;
+    }
 	.site-logo.center .site-title,
 	.site-description.center {
 		display: flex;
@@ -498,24 +528,22 @@ em {
 	
 	.site-logo.left .site-title,
 	.site-description.left	{
-		display:flex;
+		display: flex;
 		justify-content: left;
 	}
 	.site-logo.right .site-title,
 	.site-description.right {
-		display:flex;
+		display: flex;
 		justify-content: right;
 		padding-right: 2%;
-	}
-    .mobile-nav-wrapper {
-        display: none;
-    }
+	}    
     .desktop-nav {
         background-color: #ffffff;
         float: none;
         margin: 0 auto;
         padding: .5em 0 0;
         width: 100%;
+		position: relative;
     }
     .desktop-nav ul > .site-brand a {
         background-position: center center;
@@ -656,7 +684,7 @@ em {
         box-sizing: content-box;
         margin-top: 1px;
     }
-    .desktop-nav li.mega-menu > ul:before {
+    .desktop-nav li.mega-menu > ul::before {
         content: '';
         display: block;
         position: absolute;
@@ -686,7 +714,7 @@ em {
     .desktop-nav li.mega-menu.mega-col-6 > ul > li {
         width: 16.6666%;
     }
-    .desktop-nav li.mega-menu > ul > li > a:after {
+    .desktop-nav li.mega-menu > ul > li > a::after {
         content: '';
         border-bottom: 1px solid;
         display: block;
@@ -1229,7 +1257,7 @@ footer.entry-meta {
     font-size: 13px;
     font-size: 0.8125rem;
 }
-.entry-content .more-link:before {
+.entry-content .more-link::before {
     content: "";
     display: block;
     margin-top: 1.5em;
@@ -1424,7 +1452,7 @@ footer.entry-meta {
 .site-info a:hover {
     color: #fe595e;
 }
-.site-info .sep:after {
+.site-info .sep::after {
     color: rgba( 0, 0, 0, .8);
     content: "\2022";
     position: relative;
@@ -1547,7 +1575,7 @@ footer.entry-meta {
     letter-spacing: 0.1518em;
     text-transform: uppercase;
 }
-#footer-menu-widget .widget_nav_menu .menu > .menu-item:not(:last-of-type):after {
+#footer-menu-widget .widget_nav_menu .menu > .menu-item:not(:last-of-type)::after {
     color: rgba( 0, 0, 0, .8);
     content: "\2022";
     position: relative;
@@ -1609,7 +1637,7 @@ footer.entry-meta {
 ol.commentlist {
     list-style: none;
 }
-.comment-list li:before {
+.comment-list li::before {
     display: none;
 }
 .comment-body {
@@ -2166,7 +2194,7 @@ object {
     
     transform: rotate(0);
 }
-.no-svg .dropdown-toggle .svg-fallback.icon-angle-down:before {
+.no-svg .dropdown-toggle .svg-fallback.icon-angle-down::before {
     content: "\005E";
 }
 /* Social Menu fallbacks */
@@ -2244,6 +2272,32 @@ object {
     padding: 0;
 }
 
+.attachment-container {
+	padding: 50px; 
+	max-width: 780px; 
+	width: 100%;
+	margin: 0 auto
+}
+
+.attachment-container .attachment-caption {
+	
+}
+
+.attachment-container .attachment-post-link {
+	font-size: 1.4rem;
+}
+.attachment-container .attachment-post-link a {
+	color: #294e6b;
+	text-decoration: underline;
+}
+.attachment-container .attachment-post-link a:hover {
+	color: #fe595e;
+	text-decoration: none;
+}
+.attachment-container img {
+	width: 100%;
+}
+
 @media screen and (min-width: 30em) {
     /* Typography */
     
@@ -2260,9 +2314,8 @@ object {
         font-size: 1.875rem;
     }
     h2, .home.blog .entry-title {
-        /*font-size: 26px;
-        font-size: 1.625rem;*/
-		font-size: 2.617924em;
+        /*font-size: 26px;*/
+        font-size: 2.617924em;
 		line-height: 1.214;
 		letter-spacing: -1px;
     }

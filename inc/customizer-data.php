@@ -1,6 +1,6 @@
 <?php
 
-$acid_location = get_stylesheet_directory_uri() . '/inc/customizer/'; 
+$acid_location = get_template_directory() . '/inc/customizer/';
 $customizer = acid_instance( $acid_location );
 
 require get_parent_theme_file_path( '/inc/customizer/generik-color-defaults.php' );
@@ -10,7 +10,7 @@ $data = array (
         /**
 		 * Add theme's main customizer panel
 		 **/
-		'header-panel' => array (
+		'generik-panel' => array (
             'title' => __( 'GeneriK Options', 'generik' ),
             'description' => __( 'Customization settings and controls for our theme', 'generik' ),
             'sections' => array (
@@ -18,14 +18,14 @@ $data = array (
 				 * Add the General section to theme's main panel
 				 **/
 				'generik-layout-section' => array (
-                    'title' => __( 'Layout Controls', 'generik' ),
+                    'title' => __( 'Layout Settings', 'generik' ),
                     'description' => __( 'This is another section demo', 'generik' ),
                     'options' => array (
 						'header-design-toggle' => array (
                             'label' => __( 'Header Layout', 'generik' ),
                             'description' => __( 'Set the desired Header content position', 'generik' ),
                             'type' => 'radio-toggle',
-                            'default' => true,
+                            'default' => 'center',
                             'choices' => array (
                                 'center' => __( 'Centered (default)', 'generik' ),
                                 'left' => __( 'Align Left', 'generik' ),
@@ -59,7 +59,7 @@ $data = array (
 				 * Add the Header section to theme's main panel
 				 **/
 				'generik-brand-section' => array (
-                    'title' => __( 'Brand Controls', 'generik' ),
+                    'title' => __( 'Title/Tagline Settings', 'generik' ),
                     'description' => __( 'Theme\'s Brand controls', 'generik' ),
                     'options' => array (
 						'site-brand-on' => array (
@@ -96,12 +96,18 @@ $data = array (
                 ),
 				
 				'generik-navbar-section' => array (
-                    'title' => __( 'Navigation Controls', 'generik' ),
+                    'title' => __( 'Navigation Settings', 'generik' ),
                     'description' => __( 'Theme\'s navigation menu controls', 'generik' ),
                     'options' => array (
+						//'navbar-sticky-position' => array (
+                        //    'label' => __( 'Navbar Fixed', 'generik' ),
+                        //    'description' => __( 'Fix the navbar to the top on scroll instead of a floating it?', 'generik' ),
+                        //    'type' => 'toggle',
+                         //   'default' => false
+                        //),
 						'navbar-bg-color' => array (
                             'label' => __( 'Navbar Bacground Color', 'generik' ),
-                            'description' => __( 'Change the menu navigaon menu\'s background color', 'generik' ),
+                            'description' => __( 'Change the menu navigation menu\'s background color', 'generik' ),
                             'type' => 'color',
                             'default' => generik_customizer_get_navbar_background_color()
                         ),
@@ -121,9 +127,9 @@ $data = array (
 				),
 				/**
 				 * Add the Footer section to theme's main panel
-				 **/
+				 **/				
 				'generik-footer-section' => array (
-                    'title' => __( 'Footer Controls', 'generik' ),
+                    'title' => __( 'Footer Settings', 'generik' ),
                     'description' => __( 'Options for our theme\'s footer area', 'generik' ),
                     'options' => array (						
 						'site-footer-fixed' => array (
@@ -136,7 +142,7 @@ $data = array (
                             'label' => __( 'Change the footer text', 'generik' ),
                             'description' => __( 'Enter footer test - HTML not allowed', 'generik' ),
                             'type' => 'text',
-                            'default' => __( 'Copyright © '. get_bloginfo( 'name' ) .' 2019', 'generik' )
+                            'default' => __( 'Copyright &copy; ', 'generik' ) . get_bloginfo( 'name' ) . ' ' . esc_attr( date_i18n( __( 'Y', 'generik' ) ) )
                         ),
                         'footer-text-aligment' => array (
                             'label' => __( 'Text Aligment', 'generik' ),
@@ -144,8 +150,8 @@ $data = array (
                             'type' => 'radio',
                             'default' => 'center',
                             'choices' => array (
-                                'center' => __( 'Align Center (Default)', 'generik' ),
                                 'left' => __( 'Left', 'generik' ),
+                                'center' => __( 'Align Center (Default)', 'generik' ),
                                 'right' => __( 'Right', 'generik' ),
                             ),
                         ),

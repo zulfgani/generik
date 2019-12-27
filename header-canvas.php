@@ -1,6 +1,6 @@
 <?php
 /**
- * The header for our theme
+ * The header for our canvas template
  */
 
 ?><!DOCTYPE html>

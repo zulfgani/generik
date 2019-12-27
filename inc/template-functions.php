@@ -28,6 +28,10 @@ function generik_body_classes( $classes ) {
 		$classes[] = 'generik-customizer';
 	}
 	
+	if ( get_theme_mod( 'navbar-sticky-position', false ) ) {
+		$classes[] = 'navbar-sticky-position';
+	}
+	
 	if ( get_theme_mod( 'site-footer-fixed', false ) ) {
 		$classes[] = 'footer-bottom-fixed';
 	}

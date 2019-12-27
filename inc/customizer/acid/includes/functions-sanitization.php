@@ -5,7 +5,6 @@
  * 
  */
 
-
 /**
  * 
  * Sanitize dates
@@ -38,13 +37,10 @@ function acid_sanitize_checkbox( $input ) {
  * @param type $setting
  * @return boolean
  */
-function acid_sanitize_radio( $input, $setting ){
-
-    
+function acid_sanitize_radio( $input, $setting ){    
     $input = sanitize_key( $input );
     $choices = $setting->manager->get_control( $setting->id )->choices;
-    return ( array_key_exists( $input, $choices ) ? $input : $setting->default );                
-
+    return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
 }
 
 /**
@@ -54,23 +50,17 @@ function acid_sanitize_radio( $input, $setting ){
  * @param type $setting
  * @return boolean
  */
-function acid_sanitize_select( $input, $setting ){
-
-    
+function acid_sanitize_select( $input, $setting ){    
     $input = sanitize_key( $input );
     $choices = $setting->manager->get_control( $setting->id )->choices;
-    return ( array_key_exists( $input, $choices ) ? $input : $setting->default );                
-
+    return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
 }
 
 
-function acid_sanitize_colorselect( $input, $setting ) {
-    
+function acid_sanitize_colorselect( $input, $setting ) {    
     $input = sanitize_key( $input );
-    $input = '#' . $input;
-    
+    $input = '#' . $input;    
     
     $choices = $setting->manager->get_control( $setting->id )->choices;
-    return ( array_key_exists( $input, $choices ) ? $input : $setting->default );  
-    
+    return ( array_key_exists( $input, $choices ) ? $input : $setting->default );    
 }
