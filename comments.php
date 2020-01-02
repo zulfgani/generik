@@ -44,7 +44,7 @@ if ( post_password_required() ) {
 						'generik'
 					),
 					number_format_i18n( $comments_number ),
-					get_the_title()
+					esc_html( get_the_title() )
 				);
 			}
 			?>

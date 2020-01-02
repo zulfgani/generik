@@ -1,8 +1,8 @@
 === GeneriK ===
 Contributors: ClassicDesigner
 Requires at least: ClassicPress 1.0.0
-Tested up to: ClassicPress 1.0.1
-Stable tag: 1.0.2
+Tested up to: ClassicPress 1.1.2
+Stable tag: 1.0.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Tags: blog, one-column, two-columns, right-sidebar, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready
@@ -59,6 +59,13 @@ License:- GNU General Public License v3.0
 Source:- https://github.com/smartcatdev/Acid-WordPress-Customizer-Framework
 
 == Changelog ==
+
+Dec. 02, 2020, dev time < 30mins
+
+= 1.0.3 =
+
+* NEW: Security - added esc_html() function to get_the_title() in comments.php
+* NEW: Feature - added support for the Classic Menu Labels plugin
 
 Dec. 27, 2019, dev time < 30mins
 

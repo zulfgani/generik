@@ -13,6 +13,7 @@
  * @return array
  */
 function generik_body_classes( $classes ) {
+	$classes[] = 'generik';
 	// Add class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';

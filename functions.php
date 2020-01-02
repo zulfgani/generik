@@ -147,3 +147,6 @@ function generik_scripts() {
 add_action( 'wp_enqueue_scripts', 'generik_scripts' );
 
 require get_parent_theme_file_path( '/core/core-init.php' );
+
+//require get_parent_theme_file_path( '/inc/updater.php' );
+
